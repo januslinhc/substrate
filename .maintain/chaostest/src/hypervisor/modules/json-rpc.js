@@ -1,12 +1,11 @@
 const request = require('request')
 
 const getChainBlockHeight = (url, port) => new Promise((resolve, reject) => {
-  let options = {
+  const options = {
     url: url + ':' + port,
     method: 'post',
-    headers:
-	{'content-type': 'application/json'},
-    body: JSON.stringify({id: 1, jsonrpc: '2.0', method: 'chain_getBlock'}),
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ id: 1, jsonrpc: '2.0', method: 'chain_getBlock' })
   }
 
   request(options, (error, _response, body) => {
@@ -21,4 +20,4 @@ const getChainBlockHeight = (url, port) => new Promise((resolve, reject) => {
   })
 })
 
-module.exports = {getChainBlockHeight}
+module.exports = { getChainBlockHeight }

@@ -2,8 +2,8 @@
 *-error.log
 /.nyc_output
 /dist
-/package-lock.json
 /tmp
+/log
 .DS_Store
 .editorconfig
 yarn.lock

@@ -14,7 +14,7 @@ A cli for chaos testing on substrate
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g chaostest
+$ npm install -g chaostest // yarn add global chaostest
 $ chaostest COMMAND
 running command...
 $ chaostest (-v|--version|version)
@@ -67,7 +67,7 @@ USAGE
   $ chaostest singlenodeheight [FLAGS]
 
 FLAGS
-  -h , the desired height of blocks to check if reachable
+  -h , the desired height of blocks to check if reachable, this only works with integers smaller than 2^6 
   -t, the wait time out before it halts the polling
 ```
 
