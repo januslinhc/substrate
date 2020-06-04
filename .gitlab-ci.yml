@@ -122,7 +122,6 @@ check-runtime:
     GITHUB_API_PROJECT:            "parity%2Finfrastructure%2Fgithub-api"
   script:
     - ./.maintain/gitlab/check_runtime.sh
-    - echo "labels = ${CI_MERGE_REQUEST_LABELS}"
   interruptible:                   true
   allow_failure:                   true
 
