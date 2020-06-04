@@ -19,10 +19,9 @@ class SingleNodeHeightCommand extends Command {
     if (!!url && !!port) {
       JsonRpcCallTestHeight(url, port)
     } else if (!!pod && !!namespace) {
-      const podInfo = hypervisor.getPodInfoInConfig(namespace, pod)
-      logger.debug(podInfo)
-      url = `ws://${podInfo.ip}`
-      port = `${podInfo.port}`
+      url = `http://127.0.0.1`
+      port = 9933
+      await hypervisor.startForwardServer(namespace, pod, port)
       JsonRpcCallTestHeight(url, port)
     } else {
       errorExit('Not enough resources if provided')

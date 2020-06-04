@@ -95,7 +95,7 @@ const startForwardServer = async (namespace, pod, port, onReady) => new Promise(
   const server = net.createServer((socket) => {
     forward.portForward(namespace, pod, [port], socket, null, socket)
   })
-  // TODO: add Ws proxy server
+  // TODO: add Ws proxy server to adopt the polkadot/api
   server.listen(port, '127.0.0.1', (err) => {
     if (err) {
       logger.error('Error starting server')

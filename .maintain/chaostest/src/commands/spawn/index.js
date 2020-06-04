@@ -8,7 +8,7 @@ class SpawnCommand extends Command {
     const { flags } = this.parse(SpawnCommand)
     const { args } = this.parse(SpawnCommand)
     const imageTag = flags.image || 'parity/substrate:latest'
-    const port = flags.port || 9944
+    const port = flags.port || 9933
     const namespace = flags.namespace || 'substrate-ci'
     const validator = flags.validator || 0
     const node = flags.node || 1
