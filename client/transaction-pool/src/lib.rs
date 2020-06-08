@@ -540,7 +540,15 @@ impl<PoolApi, Block> MaintainedTransactionPool for BasicPool<PoolApi, Block>
 								.filter(|tx| tx.is_signed().unwrap_or(true));
 
 							resubmit_transactions.extend(
-								block_transactions.into_iter().filter(|tx| !pruned_log.contains(&pool.hash_of(&tx)))
+								block_transactions.into_iter().filter(|tx| {
+									let tx_hash = pool.hash_of(&tx);
+									if !pruned_log.contains(&tx_hash) {
+										log::debug!(target: "txpool", "[{:?}]: Resubmitting from retracted block {:?}", tx_hash, hash);
+										true
+									} else {
+										false
+									}
+								})
 							);
 						}
 
